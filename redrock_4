@@ -1,36 +1,47 @@
-function stringPermutations(str){
-    if(str.length === 0){
-        console.log('The string you input have No length!');
-        alert('The result array is: ' + resultArray);
-        return;
-    }
-    if(str.length === 1){
-        console.log('The result array is: ' + str);
-        alert('The result array is: ' + resultArray);
-        return;
-    }
-    var arrayStr = str.split('');
-    var newArray = [];
-    newArray.push(arrayStr[0]);
-    var resultArray = [];
-    for(var i = 1; i < arrayStr.length; i++){
-        resultArray = [];
-        var addChar = arrayStr[i];
-        for(var j = 0; j < newArray.length; j++){
-            var toBeInsertStr = newArray[j];
-            var toBeInsertStrArray = toBeInsertStr.split('');
-            for (var k = 0; k <= newArray[j].length; k++){
-                tempArray = toBeInsertStrArray.concat();
-                var insertedArray = toBeInsertStrArray.splice(k, 0, addChar);
-                var transArrayItem = toBeInsertStrArray.join('');
-                resultArray.push(transArrayItem);
-                toBeInsertStrArray = tempArray.concat();
-            }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数</title>
+</head>
+<body>
+<script>
+    function stringPermutations(str){
+        if(str.length === 0){
+            console.log('The string you input have No length!');
+            alert('The result array is: ' + resultArray);
+            return;
         }
-        newArray = [];
-        newArray = resultArray.concat();
+        if(str.length === 1){
+            console.log('The result array is: ' + str);
+            alert('The result array is: ' + resultArray);
+            return;
+        }
+        var arrayStr = str.split('');
+        var newArray = [];
+        newArray.push(arrayStr[0]);
+        var resultArray = [];
+        for(var i = 1; i < arrayStr.length; i++){
+            resultArray = [];
+            var addChar = arrayStr[i];
+            for(var j = 0; j < newArray.length; j++){
+                var toBeInsertStr = newArray[j];
+                var toBeInsertStrArray = toBeInsertStr.split('');
+                for (var k = 0; k <= newArray[j].length; k++){
+                    tempArray = toBeInsertStrArray.concat();
+                    var insertedArray = toBeInsertStrArray.splice(k, 0, addChar);
+                    var transArrayItem = toBeInsertStrArray.join('');
+                    resultArray.push(transArrayItem);
+                    toBeInsertStrArray = tempArray.concat();
+                }
+            }
+            newArray = [];
+            newArray = resultArray.concat();
+        }
+        console.log('The result array is: ' + resultArray);
+        alert('The result array is: ' + resultArray);
     }
-    console.log('The result array is: ' + resultArray);
-    alert('The result array is: ' + resultArray);
-}
-stringPermutations('abc') // ['abc','acb','bac','bca','cab','cba']*/
+    stringPermutations('abc') // ['abc','acb','bac','bca','cab','cba']*/
+</script>
+</body>
+</html>
