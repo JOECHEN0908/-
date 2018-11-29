@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>红岩5_动态div+返回按钮</title>
+</head>
+<body style="position: relative;height: 10000px;">
+<input type="button" onclick="creatDiv()" value="Creat a square" style="width: 200px;height: 50px;font-size: 20px;margin-left: 245px;"/>
+<input type="button" onclick="leftMove()" value="left move" style="width: 200px;height: 50px;font-size: 20px;"/>
+<input type="button" onclick="rightMove()" value="right move" style="width: 200px;height: 50px;font-size: 20px;"/>
+<input type="button" onclick="upMove()" value="up move" style="width: 200px;height: 50px;font-size: 20px;"/>
+<input type="button" onclick="downMove()" value="down move" style="width: 200px;height: 50px;font-size: 20px;"/>
+<input type="button" onclick="bigger()" value="bigger" style="width: 200px;height: 50px;font-size: 20px;"/>
+<input type="button" onclick="smaller()" value="smaller" style="width: 200px;height: 50px;font-size: 20px;"/>
+<input type="button" onclick="Return()" value="返回顶部"  style="width: 70px ;height: 50px;position: fixed;top: 900px;left: 1800px;">
+<script>
+    function creatDiv(obj) {
+        var div = document.createElement("div");
+        div.style.background = "red";
+        div.style.width="200px";
+        div.style.height="200px";
+        div.style.position="absolute";
+        div.style.left=840+"px";
+        div.style.top=300+"px";
+        div.style.transitionDuration= "0.4s";
+        div.id="div1";
+        var bo = document.body;//获取body对象.
+//动态插入到body中
+        bo.insertBefore(div,bo.lastChild);
+    }
+    function leftMove() {
+        var div =document.getElementById("div1");
+        var l=parseInt(div.style.left);
+        div1.style.left = l-100 + "px";
+
+    }
+    function rightMove() {
+        var div =document.getElementById("div1");
+        var l=parseInt(div.style.left);
+        div1.style.left = l+100 + "px";
+    }
+    function upMove() {
+        var div =document.getElementById("div1");
+        var t=parseInt(div.style.top);
+        div1.style.top = t-100 + "px";
+    }
+    function downMove() {
+        var div =document.getElementById("div1");
+        var t=parseInt(div.style.top);
+        div1.style.top = t+100 + "px";
+    }
+    function bigger() {
+        var div =document.getElementById("div1");
+        var w=parseInt(div.style.width);
+        var h=parseInt(div.style.height);
+        div.style.width=w*1.2+"px";
+        div.style.height=h*1.2+"px";
+    }
+    function smaller() {
+        var div =document.getElementById("div1");
+        var w=parseInt(div.style.width);
+        var h=parseInt(div.style.height);
+        div.style.width=w*0.8+"px";
+        div.style.height=h*0.8+"px";
+    }
+    function Return() {
+        var timer = setInterval(function () {
+            window.scrollBy(-100, -100);
+            var sTop = document.documentElement.scrollTop + document.body.scrollTop;
+            if (sTop == 0) {
+                clearInterval(timer);
+            }
+        }, 10)
+    }
+</script>
+</body>
+</html>
